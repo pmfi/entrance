@@ -22,7 +22,7 @@ var NotFoundPageComponent = (function () {
     NotFoundPageComponent.prototype.ngOnInit = function () {
     };
     NotFoundPageComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
             selector: 'app-not-found-page',
             template: __webpack_require__(515),
             styles: [__webpack_require__(510)]
@@ -57,7 +57,7 @@ var SomeAnotherComponent = (function () {
     SomeAnotherComponent.prototype.ngOnInit = function () {
     };
     SomeAnotherComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
             selector: 'app-some-another',
             template: __webpack_require__(516),
             styles: [__webpack_require__(511)]
@@ -92,7 +92,7 @@ var SomeTestComponent = (function () {
     SomeTestComponent.prototype.ngOnInit = function () {
     };
     SomeTestComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
             selector: 'app-some-test',
             template: __webpack_require__(517),
             styles: [__webpack_require__(512)]
@@ -211,7 +211,7 @@ var AppComponent = (function () {
         this.title = 'app works!';
     }
     AppComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
             selector: 'app-root',
             template: __webpack_require__(514),
             styles: [__webpack_require__(509)]
@@ -303,7 +303,7 @@ var environment = {
 /***/ 509:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(60)();
+exports = module.exports = __webpack_require__(62)();
 // imports
 
 
@@ -321,7 +321,7 @@ module.exports = module.exports.toString();
 /***/ 510:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(60)();
+exports = module.exports = __webpack_require__(62)();
 // imports
 
 
@@ -339,7 +339,7 @@ module.exports = module.exports.toString();
 /***/ 511:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(60)();
+exports = module.exports = __webpack_require__(62)();
 // imports
 
 
@@ -357,7 +357,7 @@ module.exports = module.exports.toString();
 /***/ 512:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(60)();
+exports = module.exports = __webpack_require__(62)();
 // imports
 
 
@@ -375,28 +375,28 @@ module.exports = module.exports.toString();
 /***/ 514:
 /***/ (function(module, exports) {
 
-module.exports = "<h1>\n  {{title}}\n</h1>\n<a routerLink=\"/link1\">link1</a>\n<a routerLink=\"/link2\">link2</a>\n<a routerLink=\"/trash-link\">trash-link</a>\n<router-outlet></router-outlet>"
+module.exports = "<h1>\r\n  {{title}}\r\n</h1>\r\n<a routerLink=\"/link1\">link1</a>\r\n<a routerLink=\"/link2\">link2</a>\r\n<a routerLink=\"/trash-link\">trash-link</a>\r\n<router-outlet></router-outlet>"
 
 /***/ }),
 
 /***/ 515:
 /***/ (function(module, exports) {
 
-module.exports = "<h1>404</h1>\n<h3>Page not found!</h3>"
+module.exports = "<h1>404</h1>\r\n<h3>Page not found!</h3>"
 
 /***/ }),
 
 /***/ 516:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  some-another works!\n</p>\n"
+module.exports = "<p>\r\n  some-another works!\r\n</p>\r\n"
 
 /***/ }),
 
 /***/ 517:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  some-test-component works!\n</p>\n"
+module.exports = "<p>\r\n  some-test-component works!\r\n</p>\r\n"
 
 /***/ }),
 
