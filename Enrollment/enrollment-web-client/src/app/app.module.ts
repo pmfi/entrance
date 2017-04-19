@@ -10,6 +10,8 @@ import { SomeAnotherComponent } from './common/some-another/some-another.compone
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { AdmissionsCommitteeModule } from './admissions-committee/admissions-committee.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     HttpModule,
+    AdmissionsCommitteeModule,
     AppRoutingModule
   ],
   providers: [],

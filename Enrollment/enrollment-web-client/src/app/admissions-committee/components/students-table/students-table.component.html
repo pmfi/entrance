@@ -1,0 +1,10 @@
+<p>
+  Students
+</p>
+
+<label for="surnameFilter">Поиск по фамилии:</label>
+<input name="surnameFilter" #surnameFilter type="text" (keyup)="onFilterStudents(surnameFilter.value)" />
+
+<table>
+  <tr student-row *ngFor='let student of students' [student]='student'></tr>
+</table>
