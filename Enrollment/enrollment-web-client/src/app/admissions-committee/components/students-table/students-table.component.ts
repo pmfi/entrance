@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Student } from '../../data/Student';
 import { Speciality } from '../../data/Speciality';
+import { StudentFilter } from '../../data/StudentFilter';
 
 import { AdmissionsCommitteeService } from '../../services/admissions-committee.service';
 
@@ -19,10 +20,12 @@ export class StudentsTableComponent implements OnInit {
   specialities: Speciality[];
   students: Student[];
 
-  onFilterStudents(surnameFilter: string) {
-    if (surnameFilter) {
+  filter: StudentFilter;
+
+  filterStudents() {
+    if (this.filter.surname) {
       this.students = this._allStudents.filter(s =>
-        s.surname.toLowerCase().includes(surnameFilter.toLowerCase()));
+        s.surname.toLowerCase().includes(this.filter.surname.toLowerCase()));
     } else {
       this.students = this._allStudents;
     }
@@ -33,6 +36,9 @@ export class StudentsTableComponent implements OnInit {
     this._allStudents = this.admissionService.getStudents();
 
     this.students = this._allStudents;
+
+    this.filter = new StudentFilter();
+    this.filter.specialityId = this.specialities[0].id;
   }
 
 }

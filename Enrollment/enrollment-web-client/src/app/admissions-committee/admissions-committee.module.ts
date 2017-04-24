@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AdmissionsCommitteeRoutingModule } from './admissions-committee-routing.module';
 
@@ -9,7 +9,6 @@ import { AdmissionsCommitteeService } from './services/admissions-committee.serv
 import { AdmissionsCommitteeComponent } from './admissions-committee.component';
 import { StudentRowComponent } from './components/student-row/student-row.component';
 import { StudentsTableComponent } from './components/students-table/students-table.component';
-
 
 @NgModule({
   imports: [

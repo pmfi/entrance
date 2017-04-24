@@ -32,74 +32,74 @@
                                 </tr>
                                 <tr *ngFor="let student of students;
                                 let i = index">
-                                <td>{{i+1}}</td>
-                                <td>{{student.surname}} {{student.firstName}} {{student.middleName}}</td>
-                                <td style="text-align: center;">{{student.score}}</td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td>
-                     <table class="table table-bordered">
-                        <tr>
-                            <th>№</th>
-                            <th >ФИО</th>
-                            <th align="center">Общий балл</th>
-                        </tr>
-                        <tr *ngFor="let student of students;
+                                    <td>{{i+1}}</td>
+                                    <td>{{student.surname}} {{student.firstName}} {{student.middleName}}</td>
+                                    <td style="text-align: center;">{{student.score}}</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>№</th>
+                                    <th>ФИО</th>
+                                    <th align="center">Общий балл</th>
+                                </tr>
+                                <tr *ngFor="let student of students;
                         let i = index">
-                        <td>{{i+1}}</td>
-                        <td>{{student.surname}} {{student.firstName}} {{student.middleName}}</td>
-                        <td style="text-align: center;">{{student.score}}</td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <table class="table table-bordered">
-                    <tr>
-                        <th>№</th>
-                        <th >ФИО</th>
-                        <th align="center">Общий балл</th>
-                    </tr>
-                    <tr *ngFor="let student of students;
+                                    <td>{{i+1}}</td>
+                                    <td>{{student.surname}} {{student.firstName}} {{student.middleName}}</td>
+                                    <td style="text-align: center;">{{student.score}}</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>№</th>
+                                    <th>ФИО</th>
+                                    <th align="center">Общий балл</th>
+                                </tr>
+                                <tr *ngFor="let student of students;
                     let i = index">
-                    <td>{{i+1}}</td>
-                    <td>{{student.surname}} {{student.firstName}} {{student.middleName}}</td>
-                    <td style="text-align: center;">{{student.score}}</td>
-                </tr>
+                                    <td>{{i+1}}</td>
+                                    <td>{{student.surname}} {{student.firstName}} {{student.middleName}}</td>
+                                    <td style="text-align: center;">{{student.score}}</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-        </td>
-    </tr>
-</tbody>
-</table>
-</div>
-</tab>
-<tab tabTitle="Поиск по направлению">
-    <div class="panel">
-    <select style="margin-left: 25%">
+        </div>
+    </tab>
+    <tab tabTitle="Поиск по направлению">
+        <div class="panel">
+            <select style="margin-left: 25%">
             <option *ngFor="let course of courses">{{course.name}}</option>
         </select>
-        <table align="center" width="80%" style="margin-top: 30px">
-            <tbody>
-                <tr>
-                    <td>
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>№</th>
-                                <th>ФИО</th>
-                                <th>Общий балл</th>
-                            </tr>
-                            <tr *ngFor="let student of students;
+            <table align="center" width="80%" style="margin-top: 30px">
+                <tbody>
+                    <tr>
+                        <td>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>№</th>
+                                    <th>ФИО</th>
+                                    <th>Общий балл</th>
+                                </tr>
+                                <tr *ngFor="let student of students;
                             let i = index">
-                            <td>{{i+1}}</td>
-                            <td>{{student.surname}} {{student.firstName}} {{student.middleName}}</td>
-                            <td style="text-align: center;">{{student.score}}</td>
-                        </tr>
-                    </table>
-                </td>
+                                    <td>{{i+1}}</td>
+                                    <td>{{student.surname}} {{student.firstName}} {{student.middleName}}</td>
+                                    <td style="text-align: center;">{{student.score}}</td>
+                                </tr>
+                            </table>
+                        </td>
 
-            </tr>
-        </tbody>
-    </table>
-</div>
-</tab>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </tab>
 </tabs>

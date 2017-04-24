@@ -1,10 +1,23 @@
 <p>
-  Students
+  Поиск
 </p>
 
-<label for="surnameFilter">Поиск по фамилии:</label>
-<input name="surnameFilter" #surnameFilter type="text" (keyup)="onFilterStudents(surnameFilter.value)" />
+<label for="surnameFilter">Фамилия:</label>
+<input id="surnameFilter" name="surnameFilter" type="text" [(ngModel)]="filter.surname" (input)="filterStudents()"/>
+
+<label for="specialityFilter">Специальность:</label>
+<select id="specialityFilter" name="specialityFilter" [(ngModel)]="filter.specialityId" (input)="filterStudents()" required>
+    <option *ngFor="let spec of specialities" [value]="spec.id">{{spec.name}}</option>
+</select>
+
+<hr/>
 
 <table>
+  <tr>
+    <td>Фамилия</td>
+    <td>Имя</td>
+    <td>Отчество</td>
+    <td>Количество баллов</td>
+  </tr>
   <tr student-row *ngFor='let student of students' [student]='student'></tr>
 </table>
