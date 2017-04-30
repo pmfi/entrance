@@ -3,11 +3,13 @@
 </p>
 
 <label for="surnameFilter">Фамилия:</label>
-<input id="surnameFilter" name="surnameFilter" type="text" [(ngModel)]="filter.surname" (input)="filterStudents()"/>
+<input #surnameFilter id="surnameFilter" type="text"
+       (keyup)="filterStudents(surnameFilter.value, specialityFilter.value)"/>
 
 <label for="specialityFilter">Специальность:</label>
-<select id="specialityFilter" name="specialityFilter" [(ngModel)]="filter.specialityId" (input)="filterStudents()" required>
-    <option *ngFor="let spec of specialities" [value]="spec.id">{{spec.name}}</option>
+<select #specialityFilter id="specialityFilter" (input)="filterStudents(surnameFilter.value, specialityFilter.value)"
+        required>
+  <option *ngFor="let spec of specialities" [value]="spec.id">{{spec.name}}</option>
 </select>
 
 <hr/>

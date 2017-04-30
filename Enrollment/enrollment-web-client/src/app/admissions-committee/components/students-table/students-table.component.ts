@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { Student } from '../../data/Student';
-import { Speciality } from '../../data/Speciality';
-import { StudentFilter } from '../../data/StudentFilter';
+import {Student} from '../../data/Student';
+import {Speciality} from '../../data/Speciality';
+import {StudentFilter} from '../../data/StudentFilter';
 
-import { AdmissionsCommitteeService } from '../../services/admissions-committee.service';
+import {AdmissionsCommitteeService} from '../../services/admissions-committee.service';
 
 @Component({
   selector: 'students-table',
@@ -13,32 +13,31 @@ import { AdmissionsCommitteeService } from '../../services/admissions-committee.
 })
 export class StudentsTableComponent implements OnInit {
 
-  constructor(private admissionService: AdmissionsCommitteeService) { }
-
-  private _allStudents: Student[];
+  constructor(private admissionService: AdmissionsCommitteeService) {
+  }
 
   specialities: Speciality[];
   students: Student[];
 
-  filter: StudentFilter;
+  filterStudents(surname: string, specialityId: number) {
+    const filter = new StudentFilter();
+    filter.surname = surname;
+    filter.specialityId = specialityId;
 
-  filterStudents() {
-    if (this.filter.surname) {
-      this.students = this._allStudents.filter(s =>
-        s.surname.toLowerCase().includes(this.filter.surname.toLowerCase()));
-    } else {
-      this.students = this._allStudents;
-    }
+    this.admissionService.getStudents(filter)
+      .then(result => this.students = result)
+      .catch(errMessage => alert(errMessage));
   }
 
   ngOnInit() {
-    this.specialities = this.admissionService.getSpecialities();
-    this._allStudents = this.admissionService.getStudents();
+    const filter = new StudentFilter();
 
-    this.students = this._allStudents;
-
-    this.filter = new StudentFilter();
-    this.filter.specialityId = this.specialities[0].id;
+    this.admissionService.getSpecialities()
+      .then(result => this.specialities = result)
+      .then(() => filter.specialityId = this.specialities[0].id)
+      .then(() => this.admissionService.getStudents(filter))
+      .then(result => this.students = result)
+      .catch(errMessage => alert(errMessage));
   }
 
 }
