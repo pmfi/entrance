@@ -3,11 +3,14 @@
 </p>
 
 <label for="surnameFilter">Фамилия:</label>
-<input #surnameFilter id="surnameFilter" type="text"
-       (keyup)="filterStudents(surnameFilter.value, specialityFilter.value)"/>
+<input id="surnameFilter" type="text"
+       [ngModel]="filter.surname"
+       (ngModelChange)="setSurnameFilter($event)"/>
 
 <label for="specialityFilter">Специальность:</label>
-<select #specialityFilter id="specialityFilter" (input)="filterStudents(surnameFilter.value, specialityFilter.value)"
+<select id="specialityFilter"
+        [ngModel]="filter.specialityId"
+        (ngModelChange)="setSpecialityFilter($event)"
         required>
   <option *ngFor="let spec of specialities" [value]="spec.id">{{spec.name}}</option>
 </select>
@@ -21,5 +24,5 @@
     <td>Отчество</td>
     <td>Количество баллов</td>
   </tr>
-  <tr student-row *ngFor='let student of students' [student]='student'></tr>
+  <tr student-row *ngFor='let student of students | async' [student]='student'></tr>
 </table>

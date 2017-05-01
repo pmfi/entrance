@@ -1,5 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
+
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 import {Speciality} from '../data/Speciality';
@@ -14,12 +17,11 @@ export class AdmissionsCommitteeService {
   constructor(private http: Http) {
   }
 
-  getStudents(filter: StudentFilter): Promise<Student[]> {
+  getStudents(filter: StudentFilter): Observable<Student[]> {
     const url = `${this.admissionsCommitteeUrl}/getFilteredStudents?surname=${filter.surname}&specialityId=${filter.specialityId}`;
 
     return this.http.get(url)
-      .toPromise()
-      .then(response => response.json() as Student[])
+      .map(response => response.json() as Student[])
       .catch(this.handleError);
   }
 
