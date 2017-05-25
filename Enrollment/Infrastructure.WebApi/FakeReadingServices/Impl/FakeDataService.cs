@@ -1,11 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 using Infrastructure.WebApi.Dto;
+using Infrastructure.Orm.Entities;
+using System;
 
 namespace Infrastructure.WebApi.FakeReadingServices.Impl
 {
   public class FakeDataService : IFakeDataService
   {
+        Students std = new Students();
+        Specialty sp = new Specialty();
+        
     public IEnumerable<StudentDto> GetStudentsByFilter(StudentFilterDto filter)
     {
       return fakeStudents.Where(
@@ -20,85 +26,57 @@ namespace Infrastructure.WebApi.FakeReadingServices.Impl
 
     public FakeDataService()
     {
-      #region FakeStudents
-      fakeStudents = new List<StudentDto>()
-      {
-        new StudentDto()
+    fakeStudents = new List<StudentDto>(){};
+    DataTable studDT = std.StudentSelect(1);
+    foreach(DataRow dr in studDT.Rows)
+    {    
+        DataTable studSpec = std.StudentSelect(1, dr["FirstName"].ToString(), dr["Surname"].ToString(), dr["MiddleName"].ToString());
+        fakeStudents.Add(new StudentDto()
         {
-          Surname = "Богомаз",
-          FirstName = "Владислав",
-          MiddleName = "Юрьевич",
-          Score = 267,
-          Priorities = new List<PriorityDto>()
-          {
-            new PriorityDto()
+            Surname = studSpec.Rows[0]["Surname"].ToString(),
+            FirstName = studSpec.Rows[0]["FirstName"].ToString(),
+            MiddleName = studSpec.Rows[0]["MiddleName"].ToString(),
+            Score = Convert.ToInt32(studSpec.Rows[0]["Score"].ToString()),
+            Priorities = new List<PriorityDto>()
             {
-              Order = 1,
-              SpecialityId = 2
+                new PriorityDto()
+                {
+                    Order = Convert.ToInt32(studSpec.Rows[0]["Orderr"].ToString()),
+                    SpecialityId = Convert.ToInt32(studSpec.Rows[0]["SpecialtyID"].ToString())
+                },
+                new PriorityDto()
+                {
+                    Order = Convert.ToInt32(studSpec.Rows[1]["Orderr"].ToString()),
+                    SpecialityId = Convert.ToInt32(studSpec.Rows[1]["SpecialtyID"].ToString())
+                },
+                new PriorityDto()
+                {
+                    Order = Convert.ToInt32(studSpec.Rows[2]["Orderr"].ToString()),
+                    SpecialityId = Convert.ToInt32(studSpec.Rows[2]["SpecialtyID"].ToString())
+                }
             }
-          }
-        },
-        new StudentDto()
-        {
-          Surname = "Ерёменко",
-          FirstName = "Олег",
-          MiddleName = "Константинович",
-          Score = 223,
-          Priorities = new List<PriorityDto>()
-          {
-            new PriorityDto()
+        });
+        //foreach(DataRow datR in studSpec.Rows)
+        //{
+        //    new PriorityDto()
+        //    {
+        //        Order = Convert.ToInt32(datR["Order"].ToString()),
+        //        SpecialityId = Convert.ToInt32(datR["SpecialtyID"].ToString())
+        //    };
+        //}
+    }
+    DataTable specDT = sp.SpecialtySelect();
+    fakeSpecialities = new List<SpecialityDto>(){};
+    foreach(DataRow dr in specDT.Rows)
+    {
+        fakeSpecialities.Add(
+            new SpecialityDto()
             {
-              Order = 1,
-              SpecialityId = 3
-            },
-            new PriorityDto()
-            {
-              Order = 2,
-              SpecialityId = 1
-            }
-          }
-        },
-        new StudentDto()
-        {
-          Surname = "Зеленков",
-          FirstName = "Александр",
-          MiddleName = "Сергеевич",
-          Score = 237,
-          Priorities = new List<PriorityDto>()
-          {
-            new PriorityDto()
-            {
-              Order = 1,
-              SpecialityId = 1
-            }
-          }
-        }
-      };
-      #endregion
-
-      #region FakeSpecialities
-      fakeSpecialities = new List<SpecialityDto>()
-      {
-        new SpecialityDto()
-        {
-          Id = 1,
-          BudgetPlacesCount = 23,
-          Name = "Фундаментальная информатика и информационные технологии"
-        },
-        new SpecialityDto()
-        {
-          Id = 2,
-          BudgetPlacesCount = 23,
-          Name = "Математическое обеспечение и администрирование информационных систем"
-        },
-        new SpecialityDto()
-        {
-          Id = 3,
-          BudgetPlacesCount = 66,
-          Name = "Информатика и вычислительная техника"
-        },
-      };
-      #endregion
+                Id = Convert.ToInt32(dr["ID"].ToString()),
+                BudgetPlacesCount = Convert.ToInt32(dr["Count"].ToString()),
+                Name = dr["Name"].ToString()
+            });
+    }
     }
 
     private List<StudentDto> fakeStudents;

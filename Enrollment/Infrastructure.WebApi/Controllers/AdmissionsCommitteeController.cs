@@ -46,7 +46,7 @@ namespace Infrastructure.WebApi.Controllers
       catch (Exception e)
       {
         //log error
-        return BadRequest("Some error, try again");
+        return BadRequest("Some error, try again " + e.ToString());
       }
     }
 
