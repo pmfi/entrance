@@ -14,7 +14,7 @@ namespace Infrastructure.WebApi.FakeReadingServices.Impl
         public IEnumerable<StudentDto> GetStudentsByFilter(StudentFilterDto filter)
         {
             return fakeStudents.Where(
-              s => (string.IsNullOrWhiteSpace(filter.Surname) || s.Surname.ToLower().StartsWith(filter.Surname.ToLower())) &&
+              s => (string.IsNullOrWhiteSpace(filter.Surname) || s.Surname.ToLower().StartsWith(filter.Surname.ToLower()) || s.Surname.Contains(filter.Surname)) &&
                    (!filter.SpecialityId.HasValue || s.Priorities.Any(p => p.SpecialityId == filter.SpecialityId)));
 
         }
