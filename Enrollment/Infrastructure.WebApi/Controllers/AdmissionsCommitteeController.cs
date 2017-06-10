@@ -16,7 +16,7 @@ namespace Infrastructure.WebApi.Controllers
     }
 
     [HttpGet("getFilteredStudents")]
-    public IActionResult GetStudentsByFilter(string surname, int? specialityId)
+    public IActionResult GetStudentsByFilter(string surname, int specialityId)
     {
       try
       {
